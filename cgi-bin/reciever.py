@@ -11,17 +11,18 @@ print('<!DOCTYPE HTML><html><head><meta charset="utf-8"><title>Header</title></h
 
 sock = socket.socket()
 sock.connect(('localhost', 9090))				# 2) Connecting
+print('CONNECTED to the port 9090 </br>')
 print('Sending {}...'.format(btn))
 sock.send(btn.encode())					# 4) Sending info
 
-try:
-		data = sock.recv(1024)			# 5) Getting response
-		udata = data.decode()
-		print('Got this: ', udata)
-		
-except KeyboardInterrupt:
-	print('Caught KbdInterrupt')
-	sock.close()
+#try:
+#		data = sock.recv(1024)			# 5) Getting response
+#		udata = data.decode()
+#		print('Got this: ', udata)
+#		
+#except KeyboardInterrupt:
+#	print('Caught KbdInterrupt')
+#	sock.close()
 
 sock.close()
 

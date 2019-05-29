@@ -43,7 +43,7 @@ def scktsrv():
 			elif udata == "2":
 				GPIO.output(pinA, False)
 			print('Recieved: ', udata)
-			conn.send(udata.encode())			# 6) Answering
+#			conn.send(udata.encode())			# 6) Answering
 
 try:
 	while True:
