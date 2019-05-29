@@ -5,8 +5,8 @@ import socket
 from RPi import GPIO 
 from time import sleep 
 
-pinA=11 #Ahead
-pinB=9  #Backwards
+pinA=22 #Ahead
+pinB=23 #Backwards
 
 GPIO.setmode(GPIO.BCM) 
 GPIO.setwarnings(False)
@@ -39,10 +39,18 @@ def scktsrv():
 				break
 			udata = data.decode()			# 5) Getting info
 			if udata == "1":
+				GPIO.output(pinB, False)
 				GPIO.output(pinA, True)
+				print('Forward')
 			elif udata == "2":
 				GPIO.output(pinA, False)
-			print('Recieved: ', udata)
+				GPIO.output(pinB, False)
+				print('Stop')
+			elif udata == "3":
+				GPIO.output(pinA, False)
+				GPIO.output(pinB, True)
+				print('Revers')
+#			print('Recieved: ', udata)
 #			conn.send(udata.encode())			# 6) Answering
 
 try:
