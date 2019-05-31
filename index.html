@@ -1,18 +1,60 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="utf-8">
-  <title>Control Panel</title>
- </head>
- <body> 
-  <form action="/cgi-bin/1.sh" method="POST">
-   <p><input type="submit" value="Вперёд!"></p>
-   </br></form>
-  <form action="/cgi-bin/2.sh" method="POST">
-   <p><input type="submit" value="Стоп!"></p>
-   </br></form>
-  <form action="/cgi-bin/3.sh" method="POST">
-   <p><input type="submit" value="Назад!"></p>
-  </br></form>
- </body>
+
+	<head>
+		<title>Robot Cam</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+<style>
+table ,td, tr {
+		width: 30%;
+}
+
+</style>
+
+	<body>
+		<img src="http://192.168.101.70:8080/?action=stream" style="width:100%; max-width: 600px; max-height:600px; border-radius:10px"></img>
+
+		<table style="width:100%; max-width: 500px; height:300px;">
+			<tr>
+				<td>
+					<form action="/cgi-bin/reciever.sh?left" method="POST">
+						<input type="image" name="direction" src="/static/left.svg" value="left" style="float:left; width:80% ;">
+						</br>
+					</form>
+				</td>
+				<td>
+					<form action="/cgi-bin/reciever.sh?forward" method="POST">
+						<input type="image" name="direction" src="/static/forward.svg" value="forward" style="float:left; width:80%;">
+						</br>
+					</form>
+				</td>
+				<td>
+
+					<form action="/cgi-bin/reciever.sh?right" method="POST">
+						<input type="image" name="direction" src="/static/right.svg" value="right" style="float:left; width:80%;">
+						</br>
+					</form>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<form action="/cgi-bin/reciever.sh?backward" method="POST">
+						<input type="image" name="direction" src="/static/reverse.svg" value="reverse" style=" margin-left:80px; width:80%;">
+						</br>
+					</form>
+				</td>
+				<td>
+					<form action="/cgi-bin/reciever.sh?stop" method="POST">
+						<input type="image" name="direction" src="/static/stop.svg" value="stop" style="margin-left:80px; width:80%;">
+						</br>
+					</form>
+				</td>
+
+			</tr>
+		</table>
+
+	</body>
 </html>

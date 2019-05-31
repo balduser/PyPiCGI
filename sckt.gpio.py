@@ -38,18 +38,20 @@ def scktsrv():
 			if not data:
 				break
 			udata = data.decode()			# 5) Getting info
-			if udata == "1":
+			if udata == "forward":
 				GPIO.output(pinB, False)
 				GPIO.output(pinA, True)
-				print('Forward')
-			elif udata == "2":
+				print('Going Forward')
+			elif udata == "stop":
 				GPIO.output(pinA, False)
 				GPIO.output(pinB, False)
-				print('Stop')
-			elif udata == "3":
+				print('Stopping')
+			elif udata == "backward":
 				GPIO.output(pinA, False)
 				GPIO.output(pinB, True)
-				print('Revers')
+				print('Going backewards')
+			else:
+				print(udata)
 #			print('Recieved: ', udata)
 #			conn.send(udata.encode())			# 6) Answering
 
